@@ -5,7 +5,8 @@ import Second from "./second"; // Dashboard page
 import Third from "./third";
 import Four from "./four";
 import Five from "./five";
-import Approver from "./Approver"; // Make sure this matches the file name exactly
+import Approver from "./Approver";
+import Chatbot from "./components/Chatbot/Chatbot" // Make sure this matches the file name exactly
 
 function AppRouter() {
   return (
@@ -17,6 +18,7 @@ function AppRouter() {
         <Route path="/four" element={<Four />} />
         <Route path="/five" element={<Five />} />
         <Route path="/approver" element={<Approver />} />
+        <Route path="/chat" element={<Chatbot />} />
       </Routes>
     </Router>
   );

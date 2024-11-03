@@ -59,11 +59,13 @@ function App() {
           </div>
           <button type="submit" className="login-btn">Login</button>
         </form>
+        
         <div className="footer-text">
           <p>&copy; 2024 Notes Hub</p>
         </div>
       </div>
     </div>
+    
   );
 }
 
