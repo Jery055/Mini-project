@@ -47,6 +47,16 @@ app.get('/api/markdown', async (req, res) => {
     }
 });
 
+// GET route to retrieve all Markdown file titles
+app.get('/api/markdown/filenames', async (req, res) => {
+    try {
+        const markdownFiles = await Markdown.find({}, 'title');
+        const filenames = markdownFiles.map(file => file.title);
+        res.status(200).json(filenames);
+    } catch (err) {
+        res.status(500).json({ message: 'Failed to retrieve filenames', error: err });
+    }
+});
 
 // Listen on port 3000
 const PORT = process.env.PORT || 3000;
