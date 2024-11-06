@@ -18,7 +18,7 @@ function AppRouter() {
         <Route path="/four" element={<Four />} />
         <Route path="/five" element={<Five />} />
         <Route path="/approver" element={<Approver />} />
-        <Route path="/chat" element={<Chatbot />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </Router>
   );
