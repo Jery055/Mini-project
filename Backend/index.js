@@ -44,7 +44,7 @@ app.post('/chat', async (req, res) => {
     // Log the incoming request body for debugging purposes
     console.log('Request body:', req.body);
     
-    // Check if the prompt is provided in the request body
+    
     const userPrompt = req.body?.prompt;
     
     // If the prompt is missing, return a bad request error
