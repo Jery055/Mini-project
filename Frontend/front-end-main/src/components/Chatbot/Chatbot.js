@@ -29,7 +29,7 @@ const Chatbot = () => {
     setUserInput("");
 
     try {
-      const response = await fetch("/chat", {
+      const response = await fetch("https://mini-project-backend-combined.vercel.app/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: userMessage }),
