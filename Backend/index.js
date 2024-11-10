@@ -12,11 +12,7 @@ const app = express();
 
 // Enable CORS for specific origin (your frontend URL)
 // Configure CORS to allow the frontend origin
-app.use(cors({
-    origin: 'https://mini-project-beige-delta.vercel.app', // Your frontend URL
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors()); 
 
 // MongoDB connection
 mongoose.connect("mongodb+srv://maria:maria@cluster0.uo4t1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
@@ -41,6 +37,7 @@ app.get('/chat', (req, res) => {
     }
 );
 app.post('/chat', async (req, res) => {
+    console.log('Request body:', req.body);
     const userPrompt = req.body.prompt;
     try {
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });

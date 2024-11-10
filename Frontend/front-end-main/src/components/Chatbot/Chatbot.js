@@ -33,7 +33,11 @@ const Chatbot = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: userMessage }),
-      });
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+      
       const data = await response.json();
 
       if (data.reply) {
