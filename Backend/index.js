@@ -27,6 +27,10 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
     }
 );
+app.get('/chat', (req, res) => {
+    res.send('Chatbot API');
+    }
+);
 app.post('/chat', async (req, res) => {
   const userPrompt = req.body.prompt;
   try {
