@@ -11,8 +11,11 @@ const cors = require('cors'); // Import the CORS package
 const app = express();
 
 // Enable CORS for specific origin (your frontend URL)
+// Configure CORS to allow the frontend origin
 app.use(cors({
-    origin: 'https://mini-project-beige-delta.vercel.app' // Replace with your actual frontend URL
+    origin: 'https://mini-project-beige-delta.vercel.app', // Your frontend URL
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 // MongoDB connection
