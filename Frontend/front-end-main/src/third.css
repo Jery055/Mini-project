@@ -1,153 +1,116 @@
-/* Overall layout for the third-page */
+/* Base styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
 .third-page {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on small screens */
-  height: 100vh; /* Full height of the screen */
-  background-color: #f0f4f8; /* Light gray background */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 /* Sidebar styling */
 .sidebar {
   width: 250px;
-  background-color: #00796b; /* Deep teal for sidebar */
-  padding: 30px 20px;
+  background-color: #f0f4f8;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  color: white;
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
-  position: fixed; /* Keep sidebar fixed */
-  top: 0;
-  bottom: 0;
-  z-index: 100; /* Ensure the sidebar stays on top */
-  border-radius: 0 10px 10px 0; /* Rounded corners on the right side */
+  align-items: center;
 }
 
-/* RSET Notes title in the sidebar */
 .sidebar h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #ffffff;
-  letter-spacing: 1px;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 30px;
 }
 
-/* Sidebar buttons */
 .sidebar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #333;
+  padding: 10px;
   width: 100%;
-  padding: 16px;
-  margin-bottom: 20px;
-  background-color: #004d40; /* Darker teal for button */
-  color: white;
-  text-align: left;
   border: none;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s, transform 0.2s ease;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
 }
 
 .sidebar-btn:hover {
-  background-color: #00332d; /* Darker shade on hover */
-  transform: scale(1.05); /* Slight zoom effect */
+  background-color: #e3f2fd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Branch info in the sidebar */
-.branch-info {
-  margin-top: 30px;
+.sidebar-btn i {
+  margin-right: 8px;
 }
 
 .branch-info h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #b2dfdb; /* Soft green */
-  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
+  text-align: center;
 }
 
 /* Main content styling */
 .main-content {
-  margin-left: 250px; /* Offset the main content to the right of the sidebar */
   flex: 1;
+  padding: 40px;
   display: flex;
-  flex-wrap: wrap; /* Allow the content to wrap on smaller screens */
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 30px 20px;
-  background-color: #ffffff; /* White background for main content */
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Home Page title styling */
-.home-title {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  color: #004d66; /* Color matching the sidebar */
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* Buttons for different courses */
 .course-btn {
-  width: 350px;
-  padding: 20px;
-  margin: 15px;
+  width: 80%;
+  max-width: 400px;
   background-color: #ffffff;
-  border: 2px solid #00796b;
+  color: #333;
+  padding: 15px 20px;
   border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
   font-size: 1.2rem;
-  font-weight: 600;
-  color: #00796b; /* Green text color for the button */
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
 }
 
 .course-btn:hover {
-  background-color: #e0f2f1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  color: #004d40; /* Change text color on hover to match the sidebar */
-  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
 }
 
-/* Responsive Media Query */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .third-page {
-    flex-direction: column; /* Stack sidebar and content on top of each other */
+    flex-direction: column;
   }
 
   .sidebar {
-    width: 100%; /* Sidebar takes full width on small screens */
-    position: relative; /* Sidebar becomes relative to the page */
-    height: auto;
-    margin-bottom: 20px;
+    width: 100%;
+    padding: 15px;
   }
 
   .main-content {
-    margin-left: 0; /* Remove the left margin to accommodate the full screen */
     padding: 20px;
   }
 
   .course-btn {
-    width: 100%; /* Make course buttons full width on small screens */
-    font-size: 1.1rem;
+    width: 100%;
   }
-}
-
-/* High contrast for accessibility */
-body {
-  color: #212121; /* Dark color for text for better contrast */
-}
-
-h1, h3 {
-  color: #ffffff; /* Ensure header text is white to stand out in the sidebar */
-}
-
-button {
-  color: #ffffff; /* Make button text white for readability */
 }
