@@ -27,7 +27,9 @@ mongoose.connect("mongodb+srv://maria:maria@cluster0.uo4t1.mongodb.net/?retryWri
 });
 
 // Google Generative AI Setup
-const genAI = new GoogleGenerativeAI("AIzaSyCXfcahuaSimP8w9J0gKZsKuGK3l9LpSiw");
+const genAI = new GoogleGenerativeAI(
+  process.env.GOOGLE_API_KEY,
+);
 
 
 app.get('/', (req, res) => {
