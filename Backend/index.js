@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://maria:maria@cluster0.uo4t1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 // Google Generative AI Setup
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
+const genAI = new GoogleGenerativeAI("AIzaSyCXfcahuaSimP8w9J0gKZsKuGK3l9LpSiw");
 
 
 app.get('/', (req, res) => {
