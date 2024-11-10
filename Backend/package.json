@@ -4,7 +4,7 @@
   "description": "A chatbot app with React and Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "client": "react-scripts start",
     "dev": "concurrently \"npm run start\" \"npm run client\"",
     "build": "react-scripts build",
