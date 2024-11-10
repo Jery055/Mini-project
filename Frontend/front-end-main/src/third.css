@@ -1,9 +1,12 @@
 /* Overall layout for the third-page */
 .third-page {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
   height: 100vh; /* Full height of the screen */
   background-color: #e0f7fa;
   font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 /* Sidebar styling */
@@ -19,12 +22,14 @@
   position: fixed; /* Keep sidebar fixed */
   top: 0;
   bottom: 0;
+  z-index: 100; /* Ensure the sidebar stays on top */
 }
 
 /* RSET Notes title in the sidebar */
 .sidebar h1 {
   margin-bottom: 40px;
   font-size: 1.8rem;
+  color: #ffffff; /* Make the title contrast better */
 }
 
 /* Sidebar buttons */
@@ -61,9 +66,9 @@
   margin-left: 250px; /* Offset the main content to the right of the sidebar */
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Align items to the top */
-  align-items: center;
+  flex-wrap: wrap; /* Allow the content to wrap on smaller screens */
+  justify-content: flex-start;
+  align-items: flex-start;
   padding: 20px;
   background-color: #f1f8e9;
   overflow-y: auto; /* Allow scrolling if content overflows */
@@ -85,6 +90,7 @@
   border: 2px solid #00796b;
   border-radius: 8px;
   font-size: 1.2rem;
+  color: #00796b; /* Green text color for the button */
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -92,26 +98,42 @@
 .course-btn:hover {
   background-color: #e0f2f1;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #004d40; /* Change text color on hover to match the sidebar */
 }
 
 /* Media Query for responsive design */
 @media (max-width: 768px) {
   .third-page {
-    flex-direction: column;
+    flex-direction: column; /* Stack sidebar and content on top of each other */
   }
 
   .sidebar {
-    width: 100%;
+    width: 100%; /* Sidebar takes full width on small screens */
+    position: relative; /* Sidebar becomes relative to the page */
     height: auto;
-    position: relative;
+    margin-bottom: 20px;
   }
 
   .main-content {
-    margin-left: 0;
+    margin-left: 0; /* Remove the left margin to accommodate the full screen */
+    padding: 10px;
   }
 
   .course-btn {
-    width: 80%; /* Make course buttons responsive */
-    font-size: 1rem;
+    width: 100%; /* Make course buttons full width on small screens */
+    font-size: 1.1rem;
   }
+}
+
+/* High contrast for accessibility */
+body {
+  color: #212121; /* Dark color for text for better contrast */
+}
+
+h1, h3 {
+  color: #ffffff; /* Ensure header text is white to stand out in the sidebar */
+}
+
+button {
+  color: #ffffff; /* Make button text white for readability */
 }
