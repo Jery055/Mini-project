@@ -22,6 +22,11 @@ mongoose.connect(process.env.MONGO_URI, {
 // Google Generative AI Setup
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+    }
+);
 app.post('/chat', async (req, res) => {
   const userPrompt = req.body.prompt;
   try {
