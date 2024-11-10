@@ -14,6 +14,8 @@ const app = express();
 // Configure CORS to allow the frontend origin
 app.use(cors()); 
 
+app.use(bodyParser.json());
+
 // MongoDB connection
 mongoose.connect("mongodb+srv://maria:maria@cluster0.uo4t1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
@@ -37,28 +39,52 @@ app.get('/chat', (req, res) => {
     }
 );
 app.post('/chat', async (req, res) => {
+    // Log the incoming request body for debugging purposes
     console.log('Request body:', req.body);
-    const userPrompt = req.body.prompt;
+    
+    // Check if the prompt is provided in the request body
+    const userPrompt = req.body?.prompt;
+    
+    // If the prompt is missing, return a bad request error
+    if (!userPrompt) {
+        return res.status(400).json({ error: 'Prompt is required' });
+    }
+
     try {
+        // Log the received prompt for debugging purposes
+        console.log('User prompt:', userPrompt);
+
+        // Initialize the generative model (ensure this part is working correctly)
         const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+        // Start the chat with a predefined history
         const chat = model.startChat({
             history: [
-                { role: "user", parts: [{ text: "Hello" }] },
-                { role: "model", parts: [{ text: "Great to meet you. What would you like to know?" }] },
+                { role: 'user', parts: [{ text: 'Hello' }] },
+                { role: 'model', parts: [{ text: 'Great to meet you. What would you like to know?' }] },
             ],
         });
 
-        // Send the user's prompt and await the response
+        // Send the user's prompt to the model and await the response
         let result = await chat.sendMessage(userPrompt);
+
+        // Extract the response text from the model's response
         let modelResponse = result.response.text();
 
-        console.log(modelResponse);
+        // Log the model's response for debugging
+        console.log('Model response:', modelResponse);
+
+        // Send the model's response back to the client
         res.json({ reply: modelResponse });
     } catch (error) {
+        // Log the error message
         console.error('Error during AI model interaction:', error.message);
+        
+        // Send a 500 status code and the error message to the client
         res.status(500).json({ error: `Internal Server Error: ${error.message}` });
     }
 });
+
 
 // Markdown routes
 const mdSchema = new mongoose.Schema({

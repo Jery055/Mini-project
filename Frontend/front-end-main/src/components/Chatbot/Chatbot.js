@@ -33,18 +33,20 @@ const Chatbot = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: userMessage }),
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
-      
+      });
+
+      // Check if the response is OK
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
       const data = await response.json();
 
       if (data.reply) {
         // Add bot message instantly
         addMessage(data.reply, "bot");
       } else {
-        addMessage("Error: " + data.error, "bot");
+        addMessage("Error: " + (data.error || "Unknown error"), "bot");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -55,7 +57,7 @@ const Chatbot = () => {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.keyCode === 13) {  // Ensure compatibility across browsers
       sendMessage();
     }
   };
