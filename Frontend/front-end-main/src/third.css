@@ -3,51 +3,58 @@
   display: flex;
   flex-wrap: wrap; /* Allow wrapping on small screens */
   height: 100vh; /* Full height of the screen */
-  background-color: #e0f7fa;
-  font-family: Arial, sans-serif;
+  background-color: #f0f4f8; /* Light gray background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 /* Sidebar styling */
 .sidebar {
   width: 250px;
-  background-color: #004d66;
-  padding: 20px;
+  background-color: #00796b; /* Deep teal for sidebar */
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: white;
-  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
   position: fixed; /* Keep sidebar fixed */
   top: 0;
   bottom: 0;
   z-index: 100; /* Ensure the sidebar stays on top */
+  border-radius: 0 10px 10px 0; /* Rounded corners on the right side */
 }
 
 /* RSET Notes title in the sidebar */
 .sidebar h1 {
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 40px;
-  font-size: 1.8rem;
-  color: #ffffff; /* Make the title contrast better */
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 /* Sidebar buttons */
 .sidebar-btn {
   width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  background-color: #00796b;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #004d40; /* Darker teal for button */
   color: white;
   text-align: left;
   border: none;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s ease;
 }
 
 .sidebar-btn:hover {
-  background-color: #004d40;
+  background-color: #00332d; /* Darker shade on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Branch info in the sidebar */
@@ -58,7 +65,8 @@
 .branch-info h3 {
   font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #b2dfdb;
+  color: #b2dfdb; /* Soft green */
+  font-weight: 500;
 }
 
 /* Main content styling */
@@ -69,16 +77,20 @@
   flex-wrap: wrap; /* Allow the content to wrap on smaller screens */
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 20px;
-  background-color: #f1f8e9;
+  padding: 30px 20px;
+  background-color: #ffffff; /* White background for main content */
   overflow-y: auto; /* Allow scrolling if content overflows */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Home Page title styling */
 .home-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
   color: #004d66; /* Color matching the sidebar */
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /* Buttons for different courses */
@@ -90,18 +102,20 @@
   border: 2px solid #00796b;
   border-radius: 8px;
   font-size: 1.2rem;
+  font-weight: 600;
   color: #00796b; /* Green text color for the button */
   cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s ease;
 }
 
 .course-btn:hover {
   background-color: #e0f2f1;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   color: #004d40; /* Change text color on hover to match the sidebar */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
-/* Media Query for responsive design */
+/* Responsive Media Query */
 @media (max-width: 768px) {
   .third-page {
     flex-direction: column; /* Stack sidebar and content on top of each other */
@@ -116,7 +130,7 @@
 
   .main-content {
     margin-left: 0; /* Remove the left margin to accommodate the full screen */
-    padding: 10px;
+    padding: 20px;
   }
 
   .course-btn {
