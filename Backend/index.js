@@ -1,13 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config();
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+const cors = require('cors'); // Import the CORS package
+
+const app = express();
+
+// Enable CORS for specific origin (your frontend URL)
+app.use(cors({
+    origin: 'https://mini-project-beige-delta.vercel.app' // Replace with your actual frontend URL
+}));
 
 // MongoDB connection
 mongoose.connect("mongodb+srv://maria:maria@cluster0.uo4t1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
