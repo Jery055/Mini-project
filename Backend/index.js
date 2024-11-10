@@ -32,24 +32,26 @@ app.get('/chat', (req, res) => {
     }
 );
 app.post('/chat', async (req, res) => {
-  const userPrompt = req.body.prompt;
-  try {
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
-    const chat = model.startChat({
-      history: [
-        { role: "user", parts: [{ text: "Hello" }] },
-        { role: "model", parts: [{ text: "Great to meet you. What would you like to know?" }] },
-      ],
-    });
+    const userPrompt = req.body.prompt;
+    try {
+        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const chat = model.startChat({
+            history: [
+                { role: "user", parts: [{ text: "Hello" }] },
+                { role: "model", parts: [{ text: "Great to meet you. What would you like to know?" }] },
+            ],
+        });
 
-    let result = await chat.sendMessage(userPrompt);
-    let modelResponse = result.response.text();
+        // Send the user's prompt and await the response
+        let result = await chat.sendMessage(userPrompt);
+        let modelResponse = result.response.text();
 
-    res.json({ reply: modelResponse });
-  } catch (error) {
-    console.error('Error during AI model interaction:', error.message);
-    res.status(500).json({ error: `Internal Server Error: ${error.message}` });
-  }
+        console.log(modelResponse);
+        res.json({ reply: modelResponse });
+    } catch (error) {
+        console.error('Error during AI model interaction:', error.message);
+        res.status(500).json({ error: `Internal Server Error: ${error.message}` });
+    }
 });
 
 // Markdown routes
