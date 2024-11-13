@@ -16,32 +16,28 @@ function Third() {
   };
 
   return (
-    <div className="third-page">
-      <div className="sidebar">
-        <h1>RSET NOTES</h1>
+    <div className="dashboard-container">
+      <aside className="sidebar">
+        <h1 className="logo">RSET NOTES</h1>
         <button className="sidebar-btn" onClick={handleHomeClick}>
-          <i className="fas fa-home"></i> HOME
+          <i className="fas fa-home"> </i>    HOME
         </button>
         <div className="branch-info">
-          <h3>Branch: {branch}</h3>
-          <h3>Semester: {semester}</h3>
-          <h3>User Type: {userType}</h3>
+          <h3><strong>Branch:</strong> {branch}</h3>
+          <h3><strong>Semester:</strong> {semester}</h3>
+          <h3><strong>User Type:</strong> {userType}</h3>
         </div>
-      </div>
-      <div className="main-content">
-        <button className="course-btn" onClick={() => handleCourseClick('Regular Course')}>
-          REGULAR COURSE
-        </button>
-        <button className="course-btn" onClick={() => handleCourseClick('Minors Course')}>
-          MINORS COURSE
-        </button>
-        <button className="course-btn" onClick={() => handleCourseClick('Honours Course')}>
-          HONOURS COURSE
-        </button>
-        <button className="course-btn" onClick={() => handleCourseClick('Elective Course')}>
-          ELECTIVE COURSE
-        </button>
-      </div>
+      </aside>
+
+      <main className="main-content">
+        <h2 className="main-heading">Select Course Type</h2>
+        <div className="course-buttons">
+          <button className="course-btn" onClick={() => handleCourseClick('Regular Course')}>Regular Course</button>
+          <button className="course-btn" onClick={() => handleCourseClick('Minors Course')}>Minors Course</button>
+          <button className="course-btn" onClick={() => handleCourseClick('Honours Course')}>Honours Course</button>
+          <button className="course-btn" onClick={() => handleCourseClick('Elective Course')}>Elective Course</button>
+        </div>
+      </main>
     </div>
   );
 }

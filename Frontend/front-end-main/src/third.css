@@ -1,116 +1,125 @@
-/* Base styling */
+/* third.css */
+
+/* Basic styles, imported font, etc. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212; /* Dark background for body */
+  color: #E0E0E0; /* Light text color for readability */
 }
 
-.third-page {
+.dashboard-container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212; /* Dark background for the entire container */
 }
 
-/* Sidebar styling */
 .sidebar {
-  width: 250px;
-  background-color: #f0f4f8;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  background-color: #1c1c1c; /* Slightly lighter dark shade for the sidebar */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
 }
 
-.sidebar h1 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 30px;
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #00D47E; /* Bright logo color to contrast with dark background */
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .sidebar-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  color: #333;
-  padding: 10px;
   width: 100%;
+  margin-bottom: 20px;
+  background-color: #333333; /* Darker button background */
+  color: #E0E0E0; /* Light text color for buttons */
+  font-size: 17px;
+  font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 20px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .sidebar-btn:hover {
-  background-color: #e3f2fd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #00D47E; /* Green hover effect */
+  transform: translateY(-3px);
 }
 
-.sidebar-btn i {
-  margin-right: 8px;
+.branch-info {
+  margin-top: auto;
+  font-size: 14px;
+  color: #B0B0B0; /* Lighter text for footer info */
+  text-align: left;
 }
 
 .branch-info h3 {
-  font-size: 1rem;
-  color: #333;
-  margin: 10px 0;
-  text-align: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #E0E0E0; /* Lighter color for headings */
 }
 
-/* Main content styling */
 .main-content {
   flex: 1;
-  padding: 40px;
+  padding: 60px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: #181818; /* Slightly lighter dark background for content area */
+}
+
+.main-heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: #E0E0E0; /* Light text color for headings */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.course-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns */
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
 }
 
 .course-btn {
-  width: 80%;
-  max-width: 400px;
-  background-color: #ffffff;
-  color: #333;
-  padding: 15px 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  padding: 20px;
+  background-color: #333333; /* Dark background for buttons */
+  color: #E0E0E0; /* Light text for buttons */
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
 }
 
 .course-btn:hover {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-4px);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .third-page {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .main-content {
-    padding: 20px;
-  }
-
-  .course-btn {
-    width: 100%;
-  }
+  background-color: #00D47E; /* Green hover effect */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
